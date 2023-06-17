@@ -35,11 +35,17 @@ passport.deserializeUser(User.deserializeUser());
 // ==================== ROUTES ====================
 
 app.get("/", (req, res) => {
-    res.render("home");
+    console.log(req.user);
+    res.render("home", {
+        message: "Hello from deez nuts",
+        user: req.user, // object with our user data. QUESTION: ça vient de Passport ?
+    });
 });
 
 app.get("/secret", isLoggedIn, (req, res) => {
-    res.render("secret");
+    res.render("secret", {
+        user: req.user.username,
+    });
 });
 
 app.get("/register", (req, res) => {
@@ -72,13 +78,25 @@ app.post(
 );
 
 app.get("/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
+    req.logout(function (err) {
+        if (err) {
+            console.log(err);
+            return res.redirect("/");
+        }
+        res.redirect("/");
+    });
 });
+
+// TESTING
+// app.use(function (request, response, next) {
+//     response.locals.currentUser = request.user;
+//     next();
+// });
 
 // NEW: IMPORTANT: Our middleware function
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
+        console.log(req.user);
         return next();
     }
     res.redirect("/login");

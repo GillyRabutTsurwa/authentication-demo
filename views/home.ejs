@@ -1,4 +1,10 @@
 <h1>Voilà le page principale</h1>
-<li><a href="/register">Register</a></li>
-<li><a href="/login">Login</a></li>
-<li><a href="/logout">Logout</a></li>
+<%= message %>
+    <% if (user) { %>
+        <h4>
+            <%= user.username %>
+        </h4>
+        <% } %>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/logout">Logout</a></li>

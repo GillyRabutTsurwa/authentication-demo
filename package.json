@@ -1,0 +1,37 @@
+{
+    "name": "authentication-demo",
+    "version": "1.0.0",
+    "description": "Authentication with Node, Express & Mongoose",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GillyRabutTsurwa/authentication-demo.git"
+    },
+    "keywords": [
+        "authentication",
+        "node",
+        "express",
+        "mongoose",
+        "passport",
+        "backend"
+    ],
+    "author": "Gilbert Rabut Tsurwa",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/GillyRabutTsurwa/authentication-demo/issues"
+    },
+    "homepage": "https://github.com/GillyRabutTsurwa/authentication-demo#readme",
+    "dependencies": {
+        "body-parser": "^1.20.2",
+        "ejs": "^3.1.9",
+        "express": "^4.18.2",
+        "express-session": "^1.17.3",
+        "mongoose": "^7.3.0",
+        "passport": "^0.6.0",
+        "passport-local": "^1.0.0",
+        "passport-local-mongoose": "^8.0.0"
+    }
+}
